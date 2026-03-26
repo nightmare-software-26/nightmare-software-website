@@ -1,14 +1,14 @@
-import { Button } from "react-bootstrap";
+// import { Button } from "react-bootstrap";
 import { Hero } from "./components/hero";
 
 function App() {
 	return (
 		<>
 			<Hero />
-			<div>
+			{/* <div>
 				<p>Below the fold</p>
 				<Button>Do thing</Button>
-			</div>
+			</div> */}
 		</>
 	);
 }
