@@ -1,6 +1,6 @@
 import Logo from "../../assets/Full Logo Light.svg";
 import DarkVeil from "../../react-bits/dark-veil";
-import ShinyText from "../../react-bits/shiny-text";
+// import ShinyText from "../../react-bits/shiny-text";
 
 export const Hero = () => {
 	return (
