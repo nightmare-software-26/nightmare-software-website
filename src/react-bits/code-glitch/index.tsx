@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 
 const LetterGlitch = ({
 	glitchColors = ["#2b4539", "#61dca3", "#61b3dc"],
@@ -35,26 +35,29 @@ const LetterGlitch = ({
 	const charWidth = 10;
 	const charHeight = 20;
 
-	const getRandomChar = () => {
+	const getRandomChar = useCallback(() => {
 		return lettersAndSymbols[
 			Math.floor(Math.random() * lettersAndSymbols.length)
 		];
-	};
+	}, [lettersAndSymbols]);
 
-	const getRandomCharExcluding = (excludedChars: string[]) => {
-		const availableChars = lettersAndSymbols.filter(
-			(char) => !excludedChars.includes(char),
-		);
-		if (availableChars.length === 0) {
-			// Fallback if all characters are excluded
-			return lettersAndSymbols[
-				Math.floor(Math.random() * lettersAndSymbols.length)
-			];
-		}
-		return availableChars[Math.floor(Math.random() * availableChars.length)];
-	};
+	const getRandomCharExcluding = useCallback(
+		(excludedChars: string[]) => {
+			const availableChars = lettersAndSymbols.filter(
+				(char) => !excludedChars.includes(char),
+			);
+			if (availableChars.length === 0) {
+				// Fallback if all characters are excluded
+				return lettersAndSymbols[
+					Math.floor(Math.random() * lettersAndSymbols.length)
+				];
+			}
+			return availableChars[Math.floor(Math.random() * availableChars.length)];
+		},
+		[lettersAndSymbols],
+	);
 
-	const getAdjacentChars = (index: number) => {
+	const getAdjacentChars = useCallback((index: number) => {
 		const { columns, rows } = grid.current;
 		const row = Math.floor(index / columns);
 		const col = index % columns;
@@ -93,13 +96,13 @@ const LetterGlitch = ({
 		}
 
 		return adjacentChars;
-	};
+	}, []);
 
-	const getRandomColor = () => {
+	const getRandomColor = useCallback(() => {
 		return glitchColors[Math.floor(Math.random() * glitchColors.length)];
-	};
+	}, [glitchColors]);
 
-	const hexToRgb = (hex: string) => {
+	const hexToRgb = useCallback((hex: string) => {
 		const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
 		hex = hex.replace(shorthandRegex, (_m, r, g, b) => {
 			return r + r + g + g + b + b;
@@ -113,39 +116,62 @@ const LetterGlitch = ({
 					b: parseInt(result[3], 16),
 				}
 			: null;
-	};
+	}, []);
 
-	const interpolateColor = (
-		start: { r: number; g: number; b: number },
-		end: { r: number; g: number; b: number },
-		factor: number,
-	) => {
-		const result = {
-			r: Math.round(start.r + (end.r - start.r) * factor),
-			g: Math.round(start.g + (end.g - start.g) * factor),
-			b: Math.round(start.b + (end.b - start.b) * factor),
-		};
-		return `rgb(${result.r}, ${result.g}, ${result.b})`;
-	};
+	const interpolateColor = useCallback(
+		(
+			start: { r: number; g: number; b: number },
+			end: { r: number; g: number; b: number },
+			factor: number,
+		) => {
+			const result = {
+				r: Math.round(start.r + (end.r - start.r) * factor),
+				g: Math.round(start.g + (end.g - start.g) * factor),
+				b: Math.round(start.b + (end.b - start.b) * factor),
+			};
+			return `rgb(${result.r}, ${result.g}, ${result.b})`;
+		},
+		[],
+	);
 
-	const calculateGrid = (width: number, height: number) => {
+	const calculateGrid = useCallback((width: number, height: number) => {
 		const columns = Math.ceil(width / charWidth);
 		const rows = Math.ceil(height / charHeight);
 		return { columns, rows };
-	};
+	}, []);
 
-	const initializeLetters = (columns: number, rows: number) => {
-		grid.current = { columns, rows };
-		const totalLetters = columns * rows;
-		letters.current = Array.from({ length: totalLetters }, () => ({
-			char: getRandomChar(),
-			color: getRandomColor(),
-			targetColor: getRandomColor(),
-			colorProgress: 1,
-		}));
-	};
+	const initializeLetters = useCallback(
+		(columns: number, rows: number) => {
+			grid.current = { columns, rows };
+			const totalLetters = columns * rows;
+			letters.current = Array.from({ length: totalLetters }, () => ({
+				char: getRandomChar(),
+				color: getRandomColor(),
+				targetColor: getRandomColor(),
+				colorProgress: 1,
+			}));
+		},
+		[getRandomChar, getRandomColor],
+	);
 
-	const resizeCanvas = () => {
+	const drawLetters = useCallback(() => {
+		if (!context.current || letters.current.length === 0) return;
+		const ctx = context.current;
+		// biome-ignore lint/style/noNonNullAssertion: from example code
+		const { width, height } = canvasRef.current!.getBoundingClientRect();
+		ctx.clearRect(0, 0, width, height);
+		ctx.font = `${fontSize}px monospace`;
+		ctx.textBaseline = "top";
+
+		letters.current.forEach((letter, index) => {
+			const x = (index % grid.current.columns) * charWidth;
+			const y = Math.floor(index / grid.current.columns) * charHeight;
+			ctx.fillStyle = letter.color;
+			ctx.fillText(letter.char, x, y);
+		});
+	}, []);
+
+	const resizeCanvas = useCallback(() => {
 		const canvas = canvasRef.current;
 		if (!canvas) return;
 		const parent = canvas.parentElement;
@@ -167,25 +193,9 @@ const LetterGlitch = ({
 		const { columns, rows } = calculateGrid(rect.width, rect.height);
 		initializeLetters(columns, rows);
 		drawLetters();
-	};
+	}, [calculateGrid, drawLetters, initializeLetters]);
 
-	const drawLetters = () => {
-		if (!context.current || letters.current.length === 0) return;
-		const ctx = context.current;
-		const { width, height } = canvasRef.current!.getBoundingClientRect();
-		ctx.clearRect(0, 0, width, height);
-		ctx.font = `${fontSize}px monospace`;
-		ctx.textBaseline = "top";
-
-		letters.current.forEach((letter, index) => {
-			const x = (index % grid.current.columns) * charWidth;
-			const y = Math.floor(index / grid.current.columns) * charHeight;
-			ctx.fillStyle = letter.color;
-			ctx.fillText(letter.char, x, y);
-		});
-	};
-
-	const updateLetters = () => {
+	const updateLetters = useCallback(() => {
 		if (!letters.current || letters.current.length === 0) return;
 
 		const updateCount = Math.max(1, Math.floor(letters.current.length * 0.05));
@@ -205,9 +215,9 @@ const LetterGlitch = ({
 				letters.current[index].colorProgress = 0;
 			}
 		}
-	};
+	}, [getRandomCharExcluding, getRandomColor, getAdjacentChars, smooth]);
 
-	const handleSmoothTransitions = () => {
+	const handleSmoothTransitions = useCallback(() => {
 		let needsRedraw = false;
 		letters.current.forEach((letter) => {
 			if (letter.colorProgress < 1) {
@@ -230,9 +240,9 @@ const LetterGlitch = ({
 		if (needsRedraw) {
 			drawLetters();
 		}
-	};
+	}, [drawLetters, hexToRgb, interpolateColor]);
 
-	const animate = () => {
+	const animate = useCallback(() => {
 		const now = Date.now();
 		if (now - lastGlitchTime.current >= glitchSpeed) {
 			updateLetters();
@@ -245,7 +255,13 @@ const LetterGlitch = ({
 		}
 
 		animationRef.current = requestAnimationFrame(animate);
-	};
+	}, [
+		drawLetters,
+		glitchSpeed,
+		handleSmoothTransitions,
+		smooth,
+		updateLetters,
+	]);
 
 	useEffect(() => {
 		const canvas = canvasRef.current;
@@ -269,11 +285,12 @@ const LetterGlitch = ({
 		window.addEventListener("resize", handleResize);
 
 		return () => {
+			// biome-ignore lint/style/noNonNullAssertion: from example code
 			cancelAnimationFrame(animationRef.current!);
 			window.removeEventListener("resize", handleResize);
 		};
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [glitchSpeed, smooth]);
+	}, [animate, resizeCanvas]);
 
 	useEffect(() => {
 		const prefersReducedMotion = window.matchMedia(

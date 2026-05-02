@@ -1,7 +1,7 @@
 import BorderGlow from "../../react-bits/border-glow";
 import GridDistortion from "../../react-bits/grid-distortion";
 
-export const ContactSection = () => 	{
+export const ContactSection = () => {
 	return (
 		<div
 			className="d-flex justify-content-center align-items-center"
@@ -40,4 +40,4 @@ export const ContactSection = () => 	{
 			</div>
 		</div>
 	);
-}
+};

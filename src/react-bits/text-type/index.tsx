@@ -1,7 +1,7 @@
 "use client";
 
 import {
-	ElementType,
+	type ElementType,
 	useEffect,
 	useRef,
 	useState,
@@ -181,6 +181,7 @@ const TextType = ({
 		reverseMode,
 		variableSpeed,
 		onSentenceComplete,
+		getRandomSpeed,
 	]);
 
 	const shouldHideCursor =
