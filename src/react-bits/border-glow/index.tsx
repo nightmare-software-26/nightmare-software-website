@@ -1,4 +1,9 @@
-import { useRef, useCallback, useEffect, type ReactNode } from "react";
+/**
+ * This component is taken and modified from code provided by React Bits, a collection of reusable React components.
+ * Learn more at: https://www.reactbits.dev/
+ */
+
+import { type ReactNode, useCallback, useEffect, useRef } from "react";
 
 import "./BorderGlow.css";
 

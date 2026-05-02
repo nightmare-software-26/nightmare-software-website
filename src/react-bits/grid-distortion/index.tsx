@@ -1,6 +1,12 @@
+/**
+ * This component is taken and modified from code provided by React Bits, a collection of reusable React components.
+ * Learn more at: https://www.reactbits.dev/
+ */
+
 import type React from "react";
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
+
 import "./GridDistortion.css";
 
 interface GridDistortionProps {

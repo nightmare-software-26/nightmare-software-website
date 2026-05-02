@@ -1,15 +1,19 @@
-"use client";
+/**
+ * This component is taken and modified from code provided by React Bits, a collection of reusable React components.
+ * Learn more at: https://www.reactbits.dev/
+ */
 
+import { gsap } from "gsap";
 import {
+	createElement,
 	type ElementType,
+	useCallback,
 	useEffect,
+	useMemo,
 	useRef,
 	useState,
-	createElement,
-	useMemo,
-	useCallback,
 } from "react";
-import { gsap } from "gsap";
+
 import "./TextType.css";
 
 interface TextTypeProps {

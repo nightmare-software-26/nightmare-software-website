@@ -1,5 +1,11 @@
+/**
+ * This component is taken and modified from code provided by React Bits, a collection of reusable React components.
+ * Learn more at: https://www.reactbits.dev/
+ */
+
 import { Mesh, Program, Renderer, Triangle, Vec2 } from "ogl";
 import { useEffect, useRef } from "react";
+
 import "./DarkVeil.css";
 
 const vertex = `
