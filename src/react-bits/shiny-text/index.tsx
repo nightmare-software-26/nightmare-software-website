@@ -1,15 +1,16 @@
-import type React from "react";
-import { useState, useCallback, useEffect, useRef } from "react";
 import {
 	motion,
-	useMotionValue,
 	useAnimationFrame,
+	useMotionValue,
 	useTransform,
 } from "motion/react";
+import type React from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+
 import "./ShinyText.css";
 
 interface ShinyTextProps {
-	text: string;
+	text: string | React.ReactElement;
 	disabled?: boolean;
 	speed?: number;
 	className?: string;
@@ -102,7 +103,7 @@ const ShinyText: React.FC<ShinyTextProps> = ({
 		elapsedRef.current = 0;
 		progress.set(0);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [direction]);
+	}, [direction, progress.set]);
 
 	// Transform: p=0 -> 150% (shine off right), p=100 -> -50% (shine off left)
 	const backgroundPosition = useTransform(
