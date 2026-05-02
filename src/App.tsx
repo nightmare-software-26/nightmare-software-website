@@ -1,14 +1,15 @@
-// import { Button } from "react-bootstrap";
+import { ContactSection } from "./components/contact-section";
+import { Footer } from "./components/footer";
+import { HelpWithSection } from "./components/help-with-section";
 import { Hero } from "./components/hero";
 
 function App() {
 	return (
 		<>
 			<Hero />
-			{/* <div>
-				<p>Below the fold</p>
-				<Button>Do thing</Button>
-			</div> */}
+			<HelpWithSection />
+			<ContactSection />
+			<Footer />
 		</>
 	);
 }
