@@ -1,4 +1,4 @@
-import Logo from "../../assets/Full Logo Light.svg";
+import Logo from "../../assets/Full-Logo-Light.svg";
 import DarkVeil from "../../react-bits/dark-veil";
 import ShinyText from "../../react-bits/shiny-text";
 
