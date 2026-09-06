@@ -9,7 +9,7 @@ export const Footer = () => {
 			style={{ backgroundColor: "#060010" }}
 		>
 			<span>
-				Copyright © {year} Nightmare Software, LLC. All rights reserved.
+				Copyright © {year} Nightmare Software LLC. All rights reserved.
 			</span>
 		</footer>
 	);
