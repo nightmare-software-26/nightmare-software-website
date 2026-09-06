@@ -30,10 +30,11 @@ export const ContactSection = () => {
 					<div className="p-5 d-flex justify-content-center align-items-center flex-column">
 						<h2 className="lh-base text-center">Offload your IT woes</h2>
 						<a
-							href="mailto:hello@nightmare.software"
+							href="https://forms.cloud.microsoft/r/UTTFmxSdaW"
 							className="pt-3 lh-base text-center"
 						>
-							hello@nightmare.software
+							request information
+							<i className="bi bi-box-arrow-up-right ps-2" />
 						</a>
 					</div>
 				</BorderGlow>
