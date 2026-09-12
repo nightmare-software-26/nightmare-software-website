@@ -8,7 +8,7 @@ export const Hero = () => {
 			style={{ width: "100vw", height: "100vh" }}
 			className="d-flex justify-content-center"
 		>
-			<img src={Logo} alt="Logo" className="position-absolute w-50 h-100" />
+			<img src={Logo} alt="Logo" className="position-absolute col-8 col-md-6 h-100" />
 			<DarkVeil
 				hueShift={0}
 				noiseIntensity={0}
