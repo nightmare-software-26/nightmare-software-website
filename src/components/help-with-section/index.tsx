@@ -14,7 +14,7 @@ export const HelpWithSection = () => {
 				outerVignette={true}
 				smooth={true}
 			/>
-			<div className="position-absolute w-50 fs-1">
+			<div className="position-absolute col col-md-6 col-12 px-3 fs-1">
 				<BorderGlow
 					edgeSensitivity={30}
 					glowColor="40 80 80"
