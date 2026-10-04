@@ -1,8 +1,58 @@
 ---
-import CustomSoftwareDevelopment from "../../components/CustomSoftwareDevelopment.astro";
+import ServiceSection from "../../components/ServiceSection.astro";
 import Layout from "../../layouts/Layout.astro";
+import ServiceLayout from "../../layouts/ServiceLayout.astro";
 ---
 
 <Layout>
-	<CustomSoftwareDevelopment />
+	<ServiceLayout
+		eyebrow="Custom Software"
+		title="Custom Software Development"
+		intro="Purpose-built systems for the way your company actually works."
+		highlights={[
+			"Discovery & technical strategy",
+			"Product design & architecture",
+			"Web development",
+			"Systems integration",
+			"Ongoing optimization",
+		]}
+	>
+		<ServiceSection
+			heading="From operational needs to a clear product direction"
+		>
+			<p>
+				Nightmare Software helps companies turn real operational challenges into
+				software that supports the way their teams actually work. The process
+				starts with discovery: understanding current workflows, systems,
+				constraints, user roles, and the decisions the software needs to
+				support. This may include reviewing existing tools, mapping handoffs,
+				identifying repetitive work, and separating essential requirements from
+				assumptions. The result is a practical foundation for deciding what to
+				build and why.
+			</p>
+		</ServiceSection>
+		<ServiceSection heading="Architecture and product design">
+			<p>
+				With the problem space defined, Nightmare Software shapes an
+				architecture that can support the product's intended use, integrations,
+				data flows, security needs, and future change. Product and interface
+				design are grounded in the workflows uncovered during discovery, so
+				screens, permissions, and system behavior reflect how users operate
+				rather than forcing them into a generic process. Technical decisions are
+				made with attention to maintainability, reliability, and the realities
+				of the company's existing environment.
+			</p>
+		</ServiceSection>
+		<ServiceSection heading="Building software that can evolve">
+			<p>
+				Development turns the agreed direction into working software through an
+				iterative process. Nightmare Software can help establish the application
+				structure, implement core capabilities, connect required services, and
+				create the supporting data and deployment foundations. Work is organized
+				so that assumptions can be reviewed as the product takes shape, allowing
+				feedback from stakeholders and users to inform subsequent decisions
+				instead of waiting until the end of a long, inflexible build.
+			</p>
+		</ServiceSection>
+	</ServiceLayout>
 </Layout>

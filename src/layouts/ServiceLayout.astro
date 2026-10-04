@@ -1,0 +1,63 @@
+---
+import ContentContainer from "./ContentContainer.astro";
+
+interface Props {
+	eyebrow: string;
+	title: string;
+	intro: string;
+	highlights: string[];
+	sidebarTitle?: string;
+	backHref?: string;
+	backLabel?: string;
+}
+
+const {
+	eyebrow,
+	title,
+	intro,
+	highlights,
+	sidebarTitle = "What we do",
+	backHref = "/services",
+	backLabel = "← All services",
+} = Astro.props;
+---
+
+<div>
+	<section class="border-b border-line">
+		<ContentContainer>
+			<a
+				href={backHref}
+				class="font-mono text-xs tracking-[.14em] text-muted uppercase hover:text-ink"
+			>
+				{backLabel}
+			</a>
+			<p class="mt-16 eyebrow">{eyebrow}</p>
+			<h1
+				class="mt-5 max-w-xl text-5xl font-semibold leading-[.96] tracking-[-.065em] sm:text-7xl"
+			>
+				{title}
+			</h1>
+			<p class="mt-8 max-w-2xl text-xl leading-8 text-muted">{intro}</p>
+		</ContentContainer>
+	</section>
+
+	<section class="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-24">
+		<div class="grid gap-12 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-20">
+			<div class="space-y-14">
+				<slot />
+			</div>
+
+			<aside class="h-fit border-t border-line pt-5 lg:sticky lg:top-8">
+				<h2 class="font-mono text-xs tracking-[.14em] text-bright uppercase">
+					{sidebarTitle}
+				</h2>
+				<ul class="mt-5 space-y-3 text-sm leading-6 text-muted">
+					{highlights.map((item) => (
+						<li class="border-b border-line pb-3">{item}</li>
+					))}
+				</ul>
+				<slot name="sidebar-extra" />
+			</aside>
+		</div>
+	</section>
+</div>
