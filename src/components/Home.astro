@@ -1,10 +1,14 @@
 ---
+import LetterGlitch from "./letter-glitch.tsx";
 ---
 
 <div>
-	<section class="border-b border-line">
+	<section class="relative isolate overflow-hidden border-b border-line">
+		<div class="absolute inset-0 z-0 scale-[1.02] blur-[1px]">
+			<LetterGlitch client:load glitchSpeed={100} smooth={true} />
+		</div>
 		<div
-			class="relative mx-auto max-w-7xl px-5 py-20 sm:px08 sm:py-28 lg:px-12 lg:py-36"
+			class="relative z-10 mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-28 lg:px-12 lg:py-36"
 		>
 			<div class="max-w-5xl">
 				<p class="eyebrow">Nightmare Software / 01</p>
@@ -38,7 +42,7 @@
 				Technology should move at the speed of business.
 			</h2>
 			<p class="max-w-2xl text-lg text-muted sm:text-xl mt-10">
-				Your tools should remove friction, not create another layer of it.
+				Your tools should remove friction, not create another layer of it.<br>
 				Nightmare Software partners with teams to turn tangled requirements into
 				clear, durable systems — then stays close enough to keep things running
 				smoothly.
@@ -50,7 +54,7 @@
 			class="mx-auto max-w-7xl gap-10 px-5 py-20 sm:px-8 sm:py-28 grid lg:grid-cols-2 lg:items-end lg:gap-20 lg:px-12"
 		>
 			<div>
-				<p class="eyebrow">Ready when you are.</p>
+				<p class="eyebrow">Ready when you are!</p>
 				<h2
 					class="mt-5 max-w-3xl text-4xl font-medium leading-[0.98] tracking-[-0.055em] text-ink sm:text-6xl"
 				>
