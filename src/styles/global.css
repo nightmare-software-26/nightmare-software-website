@@ -53,6 +53,10 @@ section {
 	transform: translate(-3px, -3px);
 }
 
+.button-light:hover {
+	transform: translate(-3px, -3px);
+}
+
 .button-outline {
 	border: 1px solid var(--site-line);
 	color: var(--site-ink);
@@ -141,4 +145,13 @@ section {
 	letter-spacing: -0.01em;
 	text-wrap: balance;
 	line-height: var(--tw-leading, var(--text-lg--line-height));
+}
+
+.form-control {
+	width: 100%;
+	border: 1px solid var(--site-line);
+	border-radius: var(--site-radius-sm);
+	background: var(--site-surface);
+	color: var(--site-ink);
+	padding: 0.9rem 1rem;
 }
