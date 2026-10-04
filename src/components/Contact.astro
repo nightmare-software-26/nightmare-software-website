@@ -97,7 +97,7 @@ contactForm?.addEventListener("submit", (event) => {
 	const name = String(formData.get("name") ?? "");
 	const email = String(formData.get("email") ?? "");
 	const brief = String(formData.get("brief") ?? "");
-	const subject = `Website inquiry from ${name}`;
+	const subject = `Inquiry for services from ${name}`;
 	const body = `Name: ${name}\nWork email: ${email}\n\nWhat I'm working on:\n${brief}`;
 	const mailto = `mailto:hello@nightmare.software?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
