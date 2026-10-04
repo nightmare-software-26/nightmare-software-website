@@ -1,6 +1,10 @@
-<div>
+---
+import ContentContainer from "../layouts/ContentContainer.astro";
+---
+
+<ContentContainer>
 	<section class="border-b border-line">
-		<div class="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-28 lg:px-12">
+		<ContentContainer>
 			<a
 				href="/services"
 				class="font-mono text-xs tracking-[.14em] text-muted uppercase hover:text-ink"
@@ -15,7 +19,7 @@
 			<p class="mt-8 max-w-2xl text-xl leading-8 text-muted">
 				Purpose-built systems for the way your company actually works.
 			</p>
-		</div>
+		</ContentContainer>
 	</section>
 	<section
 		class="mx-auto grid max-w-7xl gap-12 px-5 py-16 sm:px-8 sm:py-24 lg:grid-cols-[1fr_20rem] lg:gap-24 lg:px-12"
@@ -90,4 +94,4 @@
 			</ul>
 		</aside>
 	</section>
-</div>
+</ContentContainer>

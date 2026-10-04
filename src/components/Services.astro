@@ -1,10 +1,11 @@
 ---
+import ContentContainer from "../layouts/ContentContainer.astro";
 import Capabilities from "./Capabilities.astro";
 ---
 
 <div>
 	<section class="border-b border-line">
-		<div class="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-28 lg:px-12">
+		<ContentContainer>
 			<p class="eyebrow">What we do</p>
 			<h1
 				class="mt-6 max-w-4xl text-5xl font-semibold leading-[.96] tracking-[-.065em] sm:text-7xl"
@@ -15,7 +16,7 @@ import Capabilities from "./Capabilities.astro";
 				From first architecture decisions to the systems your team relies on
 				every day, we make technology more capable and less fragile.
 			</p>
-		</div>
+		</ContentContainer>
 	</section>
 	<Capabilities />
 </div>
