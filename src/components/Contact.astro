@@ -1,14 +1,16 @@
 <div>
 	<section class="border-b border-line bg-surface">
 		<div
-			class="mx-auto grid max-w-7xl gap-10 px-5 py-20 sm:px-8 sm:py-28 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24 lg:px-12"
+			class="mx-auto grid max-w-7xl gap-10 px-5 py-20 sm:px-8 sm:py-28 lg:px-12"
 		>
-			<span class="eyebrow">Let's talk</span>
-			<h1
-				class="mt-6 max-w-4xl text-5xl font-semibold leading-[.96] tracking-[-.065em] sm:text-7xl"
-			>
-				Good technology starts<br>with listening.
-			</h1>
+			<div>
+				<span class="eyebrow">Let's talk</span>
+				<h1
+					class="mt-6 max-w-4xl text-5xl font-semibold leading-[.96] tracking-[-.065em] sm:text-7xl text-start"
+				>
+					Good technology starts<br>with listening.
+				</h1>
+			</div>
 			<div class="max-w-2xl text-lg text-muted sm:text-xl">
 				There is no wrong place to begin. A rough idea, a system that keeps
 				breaking, or a growing team that has outgrown its tools are all strong
@@ -34,16 +36,18 @@
 		<div
 			class="mx-auto grid max-w-7xl gap-12 px-5 py-20 sm:px-8 sm:py-28 lg:grid-cols-[.8fr_1.2fr] lg:gap-24 lg:px-12"
 		>
-			<p class="eyebrow">Start a conversation</p>
-			<h2 class="mt-5 text-4xl font-medium tracking-tighter sm:text-5xl">
-				Bring us the complicated stuff.
-			</h2>
-			<p class="mt-6 leading-7 text-muted">
-				Tell us what is changing, what is stuck, or what needs to exist. We'll
-				use the details to understand whether<br>Nightmare Software is the right
-				technical partner.
-			</p>
-			<form class="space-y-5">
+			<div>
+				<p class="eyebrow">Start a conversation</p>
+				<h2 class="mt-5 text-4xl font-medium tracking-tighter sm:text-5xl">
+					Bring us the complicated stuff.
+				</h2>
+				<p class="mt-6 leading-7 text-muted">
+					Tell us what is changing, what is stuck, or what needs to exist. We'll
+					use the details to understand whether<br>Nightmare Software is the
+					right technical partner.
+				</p>
+			</div>
+			<form class="space-y-5" id="contact-form">
 				<label
 					class="block font-mono text-xs tracking-[.12em] text-muted uppercase"
 					>Name
@@ -76,8 +80,27 @@
 						required
 					/>
 				</label>
-				<a href="/" class="button-light mt-8">Hand over the hard stuff ↗</a>
+				<button type="submit" class="button-light mt-8 cursor-pointer">
+					Hand over the hard stuff ↗
+				</button>
 			</form>
 		</div>
 	</section>
 </div>
+
+<script>
+const contactForm = document.querySelector<HTMLFormElement>("#contact-form");
+
+contactForm?.addEventListener("submit", (event) => {
+	event.preventDefault();
+	const formData = new FormData(contactForm);
+	const name = String(formData.get("name") ?? "");
+	const email = String(formData.get("email") ?? "");
+	const brief = String(formData.get("brief") ?? "");
+	const subject = `Website inquiry from ${name}`;
+	const body = `Name: ${name}\nWork email: ${email}\n\nWhat I'm working on:\n${brief}`;
+	const mailto = `mailto:hello@nightmare.software?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+	window.location.href = mailto;
+});
+</script>
