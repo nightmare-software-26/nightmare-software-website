@@ -4,17 +4,19 @@ const year = new Date().getFullYear();
 
 <footer class="border-t border-line">
 	<div
-		class="mx-auto grid grid-cols-1 gap-5 px-5 py-8 text-sm text-muted sm:grid-cols-3 sm:items-center sm:px-8 lg:px-12"
+		class="mx-auto grid grid-cols-1 items-center gap-5 px-5 py-8 text-center text-sm text-muted sm:grid-cols-3 sm:px-8 sm:text-left lg:px-12"
 	>
 		<img
 			src="/Full-Logo/Text-Only/Full-Logo-Light.svg"
 			alt="Nightmare Software Logo"
-			class="max-h-12"
+			class="mx-auto max-h-12 sm:mx-0"
 			loading="lazy"
 		>
-		<p class="sm:justify-self-center">
+		<p class="sm:justify-self-center sm:text-center">
 			serious technology <span class="text-bright">+</span> personal support.
 		</p>
-		<p class="sm:justify-self-end">© {year} Nightmare Software LLC</p>
+		<p class="sm:justify-self-end sm:text-right">
+			© {year} Nightmare Software LLC
+		</p>
 	</div>
 </footer>
