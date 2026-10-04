@@ -15,11 +15,13 @@ import "../styles/global.css";
 		<meta name="generator" content={Astro.generator}>
 		<title>Nightmare Software</title>
 	</head>
-	<Header />
-	<body>
-		<slot />
+	<body class="flex min-h-screen flex-col">
+		<Header />
+		<main class="flex-1">
+			<slot />
+		</main>
+		<Footer />
 	</body>
-	<Footer />
 </html>
 
 <style>

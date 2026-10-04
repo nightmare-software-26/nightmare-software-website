@@ -31,6 +31,10 @@ section {
 	background-color: var(--site-canvas);
 }
 
+button {
+	@apply cursor-pointer;
+}
+
 .button-primary {
 	@apply text-white inline-flex items-center font-mono uppercase;
 	background-color: var(--site-brand);
