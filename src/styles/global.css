@@ -8,6 +8,10 @@
 	--color-muted: var(--site-muted);
 }
 
+@theme inline {
+	--color-bright: var(--site-bright);
+}
+
 :root {
 	--site-canvas: #08070d;
 	--site-surface: #100d18;
@@ -15,6 +19,7 @@
 	--site-muted: #aaa5b8;
 	--site-bright: #a891ff;
 	--site-radius-sm: 0.5rem;
+	--site-radius-md: 0.75rem;
 	--site-line: #2a2436;
 	--site-ink: #f5f1ff;
 
