@@ -22,12 +22,9 @@
 	--site-radius-md: 0.75rem;
 	--site-line: #2a2436;
 	--site-ink: #f5f1ff;
+	--text-lg--line-height: calc(1.75 / 1.125);
 
 	background-color: var(--site-canvas);
-}
-
-h1 {
-	@apply mt-6 max-w-5xl font-semibold;
 }
 
 section {
@@ -136,4 +133,12 @@ section {
 
 .service-row:hover .service-arrow {
 	transform: translate(3px, -3px);
+}
+
+.rich-text {
+	margin-block: 1.75em 0.5em;
+	font-weight: 600;
+	letter-spacing: -0.01em;
+	text-wrap: balance;
+	line-height: var(--tw-leading, var(--text-lg--line-height));
 }
