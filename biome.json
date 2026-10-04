@@ -1,5 +1,5 @@
 {
-	"$schema": "https://biomejs.dev/schemas/2.5.2/schema.json",
+	"$schema": "https://biomejs.dev/schemas/2.5.15/schema.json",
 	"vcs": {
 		"enabled": false,
 		"clientKind": "git",
@@ -7,7 +7,14 @@
 	},
 	"files": {
 		"ignoreUnknown": false,
-		"includes": ["**", "!**/.yarn/", "!**/dist", "!**/.pnp*"]
+		"includes": [
+			"**",
+			"!**/.astro/*",
+			"!**/.yarn/*",
+			"!**/node_modules/*",
+			"!**/dist/*",
+			"!**/public/*"
+		]
 	},
 	"formatter": {
 		"enabled": true,
@@ -32,6 +39,17 @@
 				"noArrayIndexKey": "off",
 				"useDefaultSwitchClauseLast": "off"
 			}
+		}
+	},
+	"html": {
+		"experimentalFullSupportEnabled": true,
+		"formatter": {
+			"enabled": true
+		}
+	},
+	"css": {
+		"parser": {
+			"tailwindDirectives": true
 		}
 	},
 	"javascript": {

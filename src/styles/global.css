@@ -1,0 +1,134 @@
+@import "tailwindcss";
+
+@theme inline {
+	--color-ink: var(--site-ink);
+}
+
+@theme inline {
+	--color-muted: var(--site-muted);
+}
+
+:root {
+	--site-canvas: #08070d;
+	--site-surface: #100d18;
+	--site-brand: #290c96;
+	--site-muted: #aaa5b8;
+	--site-bright: #a891ff;
+	--site-radius-sm: 0.5rem;
+	--site-line: #2a2436;
+	--site-ink: #f5f1ff;
+
+	background-color: var(--site-canvas);
+}
+
+h1 {
+	@apply mt-6 max-w-5xl font-semibold;
+}
+
+section {
+	background-color: var(--site-canvas);
+}
+
+.button-primary {
+	@apply text-white inline-flex items-center font-mono uppercase;
+	background-color: var(--site-brand);
+	min-height: 3rem;
+	gap: 0.85rem;
+	border-radius: var(--site-radius-sm);
+	padding: 0.8rem 1.1rem;
+	font-size: 0.7rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-decoration: none;
+	transition:
+		transform 0.2s ease,
+		background-color 0.2s ease,
+		color 0.2s ease;
+}
+
+.button-primary:hover {
+	background: #3c19c0;
+	transform: translate(-3px, -3px);
+}
+
+.button-outline {
+	border: 1px solid var(--site-line);
+	color: var(--site-ink);
+}
+
+.button-outline,
+.button-light {
+	@apply inline-flex items-center font-mono uppercase;
+	min-height: 3rem;
+	gap: 0.85rem;
+	border-radius: var(--site-radius-sm);
+	padding: 0.8rem 1.1rem;
+	font-size: 0.7rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-decoration: none;
+	transition:
+		transform 0.2s ease,
+		background-color 0.2s ease,
+		color 0.2s ease;
+}
+
+.button-light {
+	background: var(--site-ink);
+	color: var(--site-brand);
+}
+
+.button-outline:hover {
+	border-color: var(--site-bright);
+	color: var(--site-bright);
+}
+
+.eyebrow {
+	@apply font-mono;
+	font-size: 0.68rem;
+	font-weight: 700;
+	letter-spacing: 0.18em;
+	line-height: 1.4;
+	text-transform: uppercase;
+	color: var(--site-bright);
+}
+
+.signal-dot {
+	@apply inline-block;
+	box-shadow: 0 0 0 0.25rem
+		color-mix(in srgb, var(--site-bright) 16%, transparent);
+	width: 0.5rem;
+	height: 0.5rem;
+	border-radius: 999px;
+	background: var(--site-bright);
+}
+
+.bg-surface {
+	background-color: var(--site-surface);
+}
+
+.border-line {
+	border-color: var(--site-line);
+}
+
+.decoration-line {
+	text-decoration-color: var(--site-line);
+}
+
+.cta {
+	background-color: var(--site-brand);
+}
+
+.service-row {
+	border-top: 1px solid var(--site-line);
+}
+
+.service-arrow {
+	transition:
+		transform 0.2s ease,
+		color 0.2s ease;
+}
+
+.service-row:hover .service-arrow {
+	transform: translate(3px, -3px);
+}
