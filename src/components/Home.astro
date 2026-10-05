@@ -1,0 +1,74 @@
+---
+import Capabilities from "./Capabilities.astro";
+import LetterGlitch from "./letter-glitch.tsx";
+---
+
+<div>
+	<section class="relative isolate overflow-hidden border-b border-line">
+		<div class="absolute inset-0 z-0 scale-[1.02] blur-[1px]">
+			<LetterGlitch client:load glitchSpeed={100} smooth={true} />
+		</div>
+		<div
+			class="relative z-10 mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-28 lg:px-12 lg:py-36"
+		>
+			<div class="max-w-5xl">
+				<h1
+					class="mt-6 max-w-5xl text-5xl font-semibold leading-[0.96] tracking-[-0.065em] text-ink sm:text-7xl lg:text-[7.5rem]"
+				>
+					Make your unruly systems behave.
+				</h1>
+				<p class="mt-8 max-w-2xl text-lg leading-6 text-muted sm:text-xl">
+					We make your essential technology run smoothly and build the
+					software your business needs.
+				</p>
+				<div class="mt-8 flex flex-wrap items-center gap-4">
+					<a href="/contact" class="button-primary">Start a Conversation</a>
+					<a href="/services" class="button-outline">Explore Our Services</a>
+				</div>
+			</div>
+			<p
+				class="mt-20 uppercase flex items-center gap-3 font-mono text-muted text-[.68rem] tracking-[0.18em] sm:mt-28"
+			>
+				<span class="signal-dot" />
+				Build / Support / Evolve
+			</p>
+		</div>
+	</section>
+	<section class="border-b border-line bg-surface">
+		<div class="mx-auto max-w-7xl gap-10 px-5 py-20 sm:px-8 sm:py-28">
+			<h2
+				class="max-w-md text-3xl font-medium leading-tight text-ink sm:text-5xl tracking=[-.04em]"
+			>
+				Technology should move at the speed of business.
+			</h2>
+			<p class="max-w-2xl text-lg text-muted sm:text-xl mt-10">
+				Your tools should remove friction, not create another layer of it. 
+				Nightmare Software partners with teams to turn tangled requirements into
+				clear, durable systems — then stays close enough to keep things running
+				smoothly.
+			</p>
+		</div>
+	</section>
+	<section class="cta">
+		<div
+			class="mx-auto max-w-7xl gap-10 px-5 py-20 sm:px-8 sm:py-28 grid lg:grid-cols-2 lg:items-end lg:gap-20 lg:px-12"
+		>
+			<div>
+				<p class="eyebrow">Ready when you are!</p>
+				<h2
+					class="mt-5 max-w-3xl text-4xl font-medium leading-[0.98] tracking-[-0.055em] text-ink sm:text-6xl lg:mb-8"
+				>
+					Bring us the hard stuff.
+				</h2>
+			</div>
+			<div>
+				<p class="text-base leading-7 text-muted max-w-70 sm:max-w-none">
+					Tell us what is changing, what is stuck, or what needs to exist. We
+					will help you find the next move.
+				</p>
+				<a href="/contact" class="button-light mt-8">Say hello</a>
+			</div>
+		</div>
+	</section>
+	<Capabilities />
+</div>

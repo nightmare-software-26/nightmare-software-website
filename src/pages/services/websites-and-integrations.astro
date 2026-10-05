@@ -1,0 +1,67 @@
+---
+import ServiceSection from "../../components/ServiceSection.astro";
+import Layout from "../../layouts/Layout.astro";
+import ServiceLayout from "../../layouts/ServiceLayout.astro";
+---
+
+<Layout>
+	<ServiceLayout
+		eyebrow="Websites & integrations"
+		title="Websites & custom integrations"
+		intro="Connected digital experiences that make all of your tools more useful."
+		highlights={[
+			"Product design & architecture",
+			"Web design & development",
+			"Systems integration",
+			"Ongoing optimization",
+		]}
+	>
+		<ServiceSection heading="Digital products built around real workflows">
+			<p>
+				Nightmare Software creates websites, internal tools, and customer-facing
+				applications around how people actually work. That starts with
+				understanding the users, decisions, handoffs, and constraints behind a
+				request—not just selecting a framework or reproducing a visual concept.
+				Interfaces are designed to make important actions clear, reduce
+				unnecessary steps, and present the right information at the right time.
+			</p>
+			<p>
+				For websites and customer apps, we focus on useful experiences as well
+				as polished presentation. That can include clear content structures,
+				accessible interactions, account areas, forms, search, notifications,
+				and responsive behavior across devices. For internal tools, the emphasis
+				may be different: efficient data entry, practical dashboards, role-based
+				access, approvals, reporting, and workflows that fit existing
+				operational processes instead of forcing teams into a generic system.
+			</p>
+		</ServiceSection>
+		<ServiceSection heading="Systems that work with the tools you already use">
+			<p>
+				Many software projects depend on more than the application itself.
+				Nightmare Software connects new experiences to the systems a company
+				already relies on, including business platforms, databases, payment
+				services, communication tools, and third-party APIs. The work may
+				involve mapping data between systems, handling authentication and
+				permissions, synchronizing records, processing webhooks, or creating a
+				focused interface over several disconnected tools.
+			</p>
+			<p>
+				Integrations are planned with the realities of production use in mind.
+				That means considering incomplete data, duplicate events, failed
+				requests, changing API behavior, and what happens when a connected
+				service is unavailable. Where appropriate, we can separate integration
+				logic from the user interface, add logging and operational visibility,
+				and define clear boundaries so the system remains understandable and
+				maintainable as requirements change.
+			</p>
+			<p>
+				The result is technology chosen for a concrete purpose: helping
+				customers complete tasks, helping staff work more effectively, or
+				helping systems exchange reliable information. Nightmare Software can
+				work from an early concept, improve an existing product, or extend the
+				capabilities of a company's current stack without treating replacement
+				as the default answer.
+			</p>
+		</ServiceSection>
+	</ServiceLayout>
+</Layout>

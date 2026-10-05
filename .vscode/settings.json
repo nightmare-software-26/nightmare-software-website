@@ -1,0 +1,14 @@
+{
+	"editor.formatOnPaste": true,
+	"editor.formatOnSave": true,
+	"editor.defaultFormatter": "biomejs.biome",
+	"[astro]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"files.associations": {
+		"*.css": "tailwindcss"
+	},
+	"cSpell.words": [
+		"withastro"
+	]
+}

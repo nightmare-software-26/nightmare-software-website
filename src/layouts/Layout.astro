@@ -1,0 +1,36 @@
+---
+import Astro from "astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import "../styles/global.css";
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+		<link rel="icon" href="/favicon.ico">
+		<meta name="generator" content={Astro.generator}>
+		<title>Nightmare Software</title>
+	</head>
+	<body class="flex min-h-screen flex-col pt-16.25">
+		<Header />
+		<main class="flex-1">
+			<slot />
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+html,
+body {
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #101010;
+	color: #ffffff;
+}
+</style>

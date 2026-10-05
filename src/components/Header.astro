@@ -1,0 +1,44 @@
+---
+import Menu from "./Menu.astro";
+---
+
+<header class="fixed inset-x-0 top-0 z-20 border-b border-b-gray-800 bg-[#05070b]">
+	<div
+		class="flex justify-between items-center p-2 font-mono mx-auto max-w-7xl"
+	>
+		<a href="/" class="flex items-center gap-2">
+			<img
+				src="/Favicons/Purple-Gradient/favicon.svg"
+				alt="Nightmare Software Logo"
+				class="max-h-12 max-w-12"
+			>
+			<span>Nightmare Software</span>
+		</a>
+		<details class="menu-disclosure">
+			<summary class="menu-button text-muted font-mono uppercase">Menu</summary>
+			<Menu />
+		</details>
+	</div>
+</header>
+
+<style>
+.menu-button {
+	cursor: pointer;
+	font-size: 0.7rem;
+	letter-spacing: 0.16em;
+	list-style: none;
+}
+.menu-button::-webkit-details-marker {
+	display: none;
+}
+.menu-button::after {
+	content: "+";
+	color: var(--site-bright);
+}
+.menu-disclosure[open] .menu-button::after {
+	content: "−";
+}
+.menu-disclosure {
+	position: relative;
+}
+</style>
